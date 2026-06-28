@@ -1,0 +1,7 @@
+{
+  "_help": "木材版の実写素材マニフェスト（README §3.5.1）。キーは用語名、値は assets/ 配下のファイル名の配列。photo_compare は先頭2枚を使う。assets/ に実体があるファイルだけ採用され、無い用語はプレースホルダ表示になる。Supabase 運用時は termcast_wood_assets テーブルが優先されるが、レンダリング用に実体は assets/ に同期しておくこと。",
+  "柾目": ["masame_01.jpg", "itame_01.jpg", "masame_closeup.jpg"],
+  "板目": ["itame_01.jpg", "masame_01.jpg", "itame_closeup.jpg"],
+  "無垢材": ["muku_01.jpg", "shusei_01.jpg"],
+  "面取り": ["mentori_process.mp4", "mentori_after.jpg"]
+}

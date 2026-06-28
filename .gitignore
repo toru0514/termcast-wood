@@ -1,0 +1,20 @@
+node_modules/
+dist/
+data/used.json
+output/*
+!output/.gitkeep
+scene/*.json
+src/remotion/public/*
+!src/remotion/public/.gitkeep
+.env
+.env.local
+*.log
+.DS_Store
+.remotion/
+video/*
+!video/.gitkeep
+# 実写素材の実体はコミットしない（自前撮影素材のみ・README §3.5.1）。
+# マニフェストと assets/README.md は追跡する。
+assets/*
+!assets/.gitkeep
+!assets/README.md
