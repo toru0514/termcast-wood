@@ -2,8 +2,9 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import { config } from '../config.js';
 import type { Scene, TtsEngine, TtsResult } from '../types.js';
-import { concatWavs } from './wav.js';
+import { concatWithGaps } from './wav.js';
 
 const exec = promisify(execFile);
 
@@ -49,7 +50,7 @@ export class MacSayEngine implements TtsEngine {
       tmpFiles.push(tmp);
       parts.push(await this.synthesizeOne(scenes[i].narration, tmp));
     }
-    const { wav, durations } = concatWavs(parts);
+    const { wav, durations } = concatWithGaps(parts, config.render.scenePadSec);
     await writeFile(resolve(outDir, fileName), wav);
     await Promise.all(tmpFiles.map((f) => rm(f, { force: true })));
     return {

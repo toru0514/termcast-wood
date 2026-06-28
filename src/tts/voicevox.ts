@@ -2,7 +2,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { config } from '../config.js';
 import type { Scene, TtsEngine, TtsResult } from '../types.js';
-import { concatWavs } from './wav.js';
+import { concatWithGaps } from './wav.js';
 
 /** ④音声合成: VOICEVOX ローカルエンジン連携（README §3.4） */
 export class VoicevoxEngine implements TtsEngine {
@@ -50,7 +50,7 @@ export class VoicevoxEngine implements TtsEngine {
     for (const scene of scenes) {
       parts.push(await this.synthesizeOne(scene.narration));
     }
-    const { wav, durations } = concatWavs(parts);
+    const { wav, durations } = concatWithGaps(parts, config.render.scenePadSec);
     await mkdir(outDir, { recursive: true });
     await writeFile(resolve(outDir, fileName), wav);
     return {

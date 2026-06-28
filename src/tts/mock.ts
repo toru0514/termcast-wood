@@ -1,7 +1,8 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import { config } from '../config.js';
 import type { Scene, TtsEngine, TtsResult } from '../types.js';
-import { concatWavs, silentWav } from './wav.js';
+import { concatWithGaps, silentWav } from './wav.js';
 import { estimateDurationSec } from './duration.js';
 
 /**
@@ -13,7 +14,7 @@ export class MockTtsEngine implements TtsEngine {
 
   async synthesize(scenes: Scene[], outDir: string, fileName: string): Promise<TtsResult> {
     const parts = scenes.map((s) => silentWav(estimateDurationSec(s.narration)));
-    const { wav, durations } = concatWavs(parts);
+    const { wav, durations } = concatWithGaps(parts, config.render.scenePadSec);
     await mkdir(outDir, { recursive: true });
     await writeFile(resolve(outDir, fileName), wav);
     return {

@@ -25,8 +25,12 @@ export const config = {
     url: process.env.VOICEVOX_URL ?? 'http://127.0.0.1:50021',
     // 木材版トーン（やわらかい・素朴な語り口）に寄せた既定話者。
     speaker: Number(process.env.VOICEVOX_SPEAKER ?? '8'),
-    // 話速（1.0=標準）。20秒前後のテンポだが、落ち着いた語り口のため株版より少しゆっくり。
-    speed: Number(process.env.VOICEVOX_SPEED ?? '1.1'),
+    // 話速（1.0=標準）。落ち着いた語り口のため標準速。
+    speed: Number(process.env.VOICEVOX_SPEED ?? '1.0'),
+  },
+  render: {
+    // 各シーンの後ろに入れる無音の「間」（秒）。尺を20秒前後に伸ばしつつ間を作る。
+    scenePadSec: Number(process.env.SCENE_PAD_SEC ?? '0.8'),
   },
   youtube: {
     // YouTube Data API v3（OAuth）。gws は YouTube 非対応のため別経路。

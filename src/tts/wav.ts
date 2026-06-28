@@ -90,3 +90,30 @@ export function silentWav(seconds: number, sampleRate = 24000): Buffer {
   const data = Buffer.alloc(samples * 2); // 16bit mono → ゼロ埋め
   return encodeWav({ audioFormat: 1, channels: 1, sampleRate, bitsPerSample: 16, data });
 }
+
+/**
+ * 各シーンの後ろに gapSec 秒の無音を挟んで結合する。
+ * 返す durations[i] は「ナレーション尺 + 間」なので、これを scene.json に書き戻せば
+ * 字幕・シーンと音声のタイミングが同期したまま尺だけ伸ばせる（20秒前後に調整するため）。
+ */
+export function concatWithGaps(buffers: Buffer[], gapSec: number): { wav: Buffer; durations: number[] } {
+  if (buffers.length === 0) throw new Error('no buffers to concat');
+  if (gapSec <= 0) return concatWavs(buffers);
+  const infos = buffers.map(parseWav);
+  const first = infos[0];
+  const gap = parseWav(silentWav(gapSec, first.sampleRate));
+  const dataParts: Buffer[] = [];
+  const durations: number[] = [];
+  for (const info of infos) {
+    dataParts.push(info.data, gap.data);
+    durations.push(info.data.length / info.byteRate + gap.data.length / gap.byteRate);
+  }
+  const wav = encodeWav({
+    audioFormat: first.audioFormat,
+    channels: first.channels,
+    sampleRate: first.sampleRate,
+    bitsPerSample: first.bitsPerSample,
+    data: Buffer.concat(dataParts),
+  });
+  return { wav, durations };
+}
