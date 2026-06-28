@@ -1,0 +1,39 @@
+{
+  "_help": "用語ごとの解説台本（知識ベース）。テンプレ台本生成がここを参照し、用語固有の濃い内容を出す。キーは用語名、scenes は {type, narration, caption}。type は hook/definition/example/summary。Gemini を使う場合はこのファイルより Gemini が優先される。",
+  "オーク": {
+    "scenes": [
+      { "type": "hook", "narration": "オークって、どんな木か説明できますか？名前はよく聞きますよね。", "caption": "オークって？" },
+      { "type": "definition", "narration": "オークは、日本でいう「ナラ」の仲間。硬くて丈夫な広葉樹です。", "caption": "ナラの仲間の広葉樹" },
+      { "type": "example", "narration": "特徴は、力強くはっきりした木目。柾目には「虎斑」という縞模様も出ます。", "caption": "力強い木目と虎斑" },
+      { "type": "example", "narration": "テーブルや床、ウイスキーの樽にも。使うほど深い飴色に育ちます。", "caption": "使うほど飴色に" },
+      { "type": "summary", "narration": "丈夫で表情ゆたか。間違いのない定番、それがオークです。", "caption": "丈夫で定番の木" }
+    ]
+  },
+  "突板": {
+    "scenes": [
+      { "type": "hook", "narration": "この家具の表面、無垢材でしょうか。それとも突板。見分けられますか？", "caption": "無垢？突板？" },
+      { "type": "definition", "narration": "突板とは、天然の木をかみそりのように薄くスライスした、本物の木のシートです。", "caption": "薄くスライスした天然木" },
+      { "type": "example", "narration": "これを合板やMDFに貼って仕上げます。厚さはわずか0.2ミリほど。", "caption": "下地に貼って使う" },
+      { "type": "example", "narration": "無垢材より反りや割れに強く、希少な銘木も無駄なく使えます。", "caption": "反りに強く銘木を活かす" },
+      { "type": "summary", "narration": "薄い本物の木をまとった材、それが突板。木を賢く活かす知恵です。", "caption": "本物の木をまとう" }
+    ]
+  },
+  "柾目": {
+    "scenes": [
+      { "type": "hook", "narration": "まっすぐ平行な木目と、山形の木目。実は同じ丸太から取れるんです。", "caption": "柾目と板目" },
+      { "type": "definition", "narration": "柾目は、丸太を年輪に対して直角に挽いたときに出る、平行でまっすぐな木目です。", "caption": "年輪に直角の木目" },
+      { "type": "example", "narration": "魅力は狂いの少なさ。反りや収縮が小さく、寸法が安定します。", "caption": "反りにくく安定" },
+      { "type": "example", "narration": "ただし一本から少ししか取れない、ぜいたくな木取り。建具や高級家具に使われます。", "caption": "貴重でぜいたく" },
+      { "type": "summary", "narration": "まっすぐ・安定・上品。それが柾目です。", "caption": "まっすぐで上品" }
+    ]
+  },
+  "板目": {
+    "scenes": [
+      { "type": "hook", "narration": "板の表面に浮かぶ、山形やタケノコのような模様。これ、何だと思いますか？", "caption": "この模様は？" },
+      { "type": "definition", "narration": "板目は、丸太を年輪に沿うように挽いたときに出る、山形の表情ゆたかな木目です。", "caption": "年輪に沿った木目" },
+      { "type": "example", "narration": "一本からたくさん取れるので価格は手ごろ。木目のダイナミックさも魅力です。", "caption": "手ごろで表情ゆたか" },
+      { "type": "example", "narration": "いっぽう反りはやや出やすく、板の表と裏で木表・木裏の違いも生まれます。", "caption": "木表・木裏が生まれる" },
+      { "type": "summary", "narration": "ゆたかな表情とコスパのよさ。それが板目です。", "caption": "表情とコスパ" }
+    ]
+  }
+}

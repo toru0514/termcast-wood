@@ -30,7 +30,7 @@ export const config = {
   },
   render: {
     // 各シーンの後ろに入れる無音の「間」（秒）。尺を20秒前後に伸ばしつつ間を作る。
-    scenePadSec: Number(process.env.SCENE_PAD_SEC ?? '0.8'),
+    scenePadSec: Number(process.env.SCENE_PAD_SEC ?? '0.6'),
   },
   youtube: {
     // YouTube Data API v3（OAuth）。gws は YouTube 非対応のため別経路。
@@ -85,6 +85,8 @@ export const paths = {
   assetsSource: resolve(ROOT, 'assets'),
   remotionAssets: resolve(ROOT, 'src/remotion/public/assets'),
   assetsManifest: resolve(ROOT, 'data/assets.manifest.json'),
+  // 用語ごとの解説台本（テンプレ生成が参照する知識ベース）
+  termContent: resolve(ROOT, 'data/term-content.json'),
   seed: resolve(ROOT, 'data/terms.seed.json'),
   used: resolve(ROOT, 'data/used.json'),
 };

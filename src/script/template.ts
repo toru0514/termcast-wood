@@ -1,17 +1,57 @@
-import type { ScriptGenerator, ScriptResult, Term } from '../types.js';
+import { readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { paths } from '../config.js';
+import {
+  SceneType,
+  type ScriptGenerator,
+  type ScriptResult,
+  type SceneDraft,
+  type Term,
+} from '../types.js';
 import { suggestVisual } from '../scene/visuals.js';
+
+interface ContentScene {
+  type: string;
+  narration: string;
+  caption: string;
+}
+type ContentFile = Record<string, { scenes: ContentScene[] }>;
 
 /**
  * API不要の決定的な台本生成。Gemini未設定時のフォールバック兼テスト用。
  * README §3.2 の固定構成（フック→定義→具体例→まとめ）に沿う。
+ *
+ * 用語ごとの濃い解説は data/term-content.json（知識ベース）から引く。
+ * 登録が無い用語は汎用テンプレにフォールバックする。
  */
 export class TemplateScriptGenerator implements ScriptGenerator {
   name = 'template';
 
+  private async loadContent(): Promise<ContentFile> {
+    if (!existsSync(paths.termContent)) return {};
+    return JSON.parse(await readFile(paths.termContent, 'utf8')) as ContentFile;
+  }
+
   async generate(term: Term): Promise<ScriptResult> {
     const t = term.term;
-    const cat = term.category || '木材';
+    const content = await this.loadContent();
+    const curated = content[t]?.scenes;
 
+    if (curated && curated.length > 0) {
+      const scenes: SceneDraft[] = curated.map((s) => {
+        const type = SceneType.parse(s.type);
+        return {
+          type,
+          narration: s.narration,
+          caption: s.caption,
+          visual: suggestVisual(t, type),
+        };
+      });
+      return { term: t, scenes };
+    }
+
+    // ===== 汎用フォールバック（知識ベース未登録の用語）=====
+    const cat = term.category || '木材';
     return {
       term: t,
       scenes: [
