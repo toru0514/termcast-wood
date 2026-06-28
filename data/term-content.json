@@ -1,39 +1,39 @@
 {
-  "_help": "用語ごとの解説台本（知識ベース）。テンプレ台本生成がここを参照し、用語固有の濃い内容を出す。キーは用語名、scenes は {type, narration, caption}。type は hook/definition/example/summary。Gemini を使う場合はこのファイルより Gemini が優先される。",
+  "_help": "用語ごとの解説台本（知識ベース）。テンプレ台本生成がここを参照し、用語固有の濃い内容を出す。キーは用語名、scenes は {type, narration, caption}。type は hook/definition/example/summary。方針: 木の美しさ・多様さ・面白さを伝え『木っていいな』と感じてもらう。販売・購入の誘導は書かない（README §1.3）。Gemini を使う場合はこのファイルより Gemini が優先される。",
   "オーク": {
     "scenes": [
-      { "type": "hook", "narration": "オークって、どんな木か説明できますか？名前はよく聞きますよね。", "caption": "オークって？" },
-      { "type": "definition", "narration": "オークは、日本でいう「ナラ」の仲間。硬くて丈夫な広葉樹です。", "caption": "ナラの仲間の広葉樹" },
-      { "type": "example", "narration": "特徴は、力強くはっきりした木目。柾目には「虎斑」という縞模様も出ます。", "caption": "力強い木目と虎斑" },
-      { "type": "example", "narration": "テーブルや床、ウイスキーの樽にも。使うほど深い飴色に育ちます。", "caption": "使うほど飴色に" },
-      { "type": "summary", "narration": "丈夫で表情ゆたか。間違いのない定番、それがオークです。", "caption": "丈夫で定番の木" }
+      { "type": "hook", "narration": "木の家具って、どれも同じ茶色…なんて思っていませんか？", "caption": "どれも同じ茶色？" },
+      { "type": "definition", "narration": "これはオーク。日本でいうナラの仲間で、世界中で愛される木です。", "caption": "ナラの仲間" },
+      { "type": "example", "narration": "魅力は、力強くはっきりした木目。柾目には「虎斑」という、絹のように光る縞が現れます。", "caption": "絹のように光る虎斑" },
+      { "type": "example", "narration": "しかも使うほどに飴色へと深まり、表情が育っていく。年月さえ味方にする木です。", "caption": "使うほど育つ表情" },
+      { "type": "summary", "narration": "同じ茶色に見えて、木にはこんなに個性がある。次は、どんな木に出会えるでしょう。", "caption": "木それぞれの個性" }
     ]
   },
   "突板": {
     "scenes": [
-      { "type": "hook", "narration": "この家具の表面、無垢材でしょうか。それとも突板。見分けられますか？", "caption": "無垢？突板？" },
-      { "type": "definition", "narration": "突板とは、天然の木をかみそりのように薄くスライスした、本物の木のシートです。", "caption": "薄くスライスした天然木" },
-      { "type": "example", "narration": "これを合板やMDFに貼って仕上げます。厚さはわずか0.2ミリほど。", "caption": "下地に貼って使う" },
-      { "type": "example", "narration": "無垢材より反りや割れに強く、希少な銘木も無駄なく使えます。", "caption": "反りに強く銘木を活かす" },
-      { "type": "summary", "narration": "薄い本物の木をまとった材、それが突板。木を賢く活かす知恵です。", "caption": "本物の木をまとう" }
+      { "type": "hook", "narration": "世界の銘木を、手のひらサイズで楽しめたら、すてきだと思いませんか？", "caption": "銘木を手のひらに" },
+      { "type": "definition", "narration": "それを叶えるのが突板。天然の木を、かみそりのように薄くスライスした、本物の木のシートです。", "caption": "薄い本物の木" },
+      { "type": "example", "narration": "希少なウォールナットや、うっとりするような杢も、突板ならぜいたくに味わえます。", "caption": "希少な木も身近に" },
+      { "type": "example", "narration": "表面はまぎれもなく本物の木。指で触れれば、ちゃんと木のぬくもりがあります。", "caption": "触れると木のぬくもり" },
+      { "type": "summary", "narration": "貴重な木の美しさを、もっと身近に。突板は、そんな小さな贅沢です。", "caption": "美しさを身近に" }
     ]
   },
   "柾目": {
     "scenes": [
-      { "type": "hook", "narration": "まっすぐ平行な木目と、山形の木目。実は同じ丸太から取れるんです。", "caption": "柾目と板目" },
-      { "type": "definition", "narration": "柾目は、丸太を年輪に対して直角に挽いたときに出る、平行でまっすぐな木目です。", "caption": "年輪に直角の木目" },
-      { "type": "example", "narration": "魅力は狂いの少なさ。反りや収縮が小さく、寸法が安定します。", "caption": "反りにくく安定" },
-      { "type": "example", "narration": "ただし一本から少ししか取れない、ぜいたくな木取り。建具や高級家具に使われます。", "caption": "貴重でぜいたく" },
-      { "type": "summary", "narration": "まっすぐ・安定・上品。それが柾目です。", "caption": "まっすぐで上品" }
+      { "type": "hook", "narration": "まっすぐ静かな木目と、のびやかな山形。実は、同じ木の別の表情なんです。", "caption": "同じ木の別の顔" },
+      { "type": "definition", "narration": "柾目は、丸太を年輪に対して直角に挽いたときに現れる、平行でまっすぐな木目です。", "caption": "年輪に直角の木目" },
+      { "type": "example", "narration": "凛として上品。狂いが少なく、見ているだけで心が落ち着く美しさがあります。", "caption": "凛とした美しさ" },
+      { "type": "example", "narration": "しかも一本の丸太から、わずかしか取れない。静かでぜいたくな一枚です。", "caption": "ぜいたくな一枚" },
+      { "type": "summary", "narration": "静かな美しさ、柾目。次は、のびやかな板目も見てみましょう。", "caption": "静かな美しさ" }
     ]
   },
   "板目": {
     "scenes": [
-      { "type": "hook", "narration": "板の表面に浮かぶ、山形やタケノコのような模様。これ、何だと思いますか？", "caption": "この模様は？" },
-      { "type": "definition", "narration": "板目は、丸太を年輪に沿うように挽いたときに出る、山形の表情ゆたかな木目です。", "caption": "年輪に沿った木目" },
-      { "type": "example", "narration": "一本からたくさん取れるので価格は手ごろ。木目のダイナミックさも魅力です。", "caption": "手ごろで表情ゆたか" },
-      { "type": "example", "narration": "いっぽう反りはやや出やすく、板の表と裏で木表・木裏の違いも生まれます。", "caption": "木表・木裏が生まれる" },
-      { "type": "summary", "narration": "ゆたかな表情とコスパのよさ。それが板目です。", "caption": "表情とコスパ" }
+      { "type": "hook", "narration": "木の板に浮かぶ、山やタケノコのような模様。実はこれ、自然が描いた絵なんです。", "caption": "自然が描いた絵" },
+      { "type": "definition", "narration": "板目は、丸太を年輪に沿うように挽いたときに現れる、表情ゆたかな木目です。", "caption": "年輪に沿った木目" },
+      { "type": "example", "narration": "一枚ごとに模様が違い、同じものは二つとありません。まさに一点もの。", "caption": "二つとない模様" },
+      { "type": "example", "narration": "ダイナミックで、どこか温かみがあって、見ているだけで心がほどけていきます。", "caption": "温かみのある表情" },
+      { "type": "summary", "narration": "世界にひとつの表情、板目。木って、いいものですね。", "caption": "世界にひとつ" }
     ]
   }
 }
