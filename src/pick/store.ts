@@ -16,6 +16,8 @@ export interface TermStore {
   name: string;
   /** 次に動画化する1語を選定（pending → difficulty昇順・カテゴリ分散） */
   pickNext(): Promise<Term | null>;
+  /** 用語名を指定して1語取得（--term / 再撮影・デモ用）。見つからなければ null */
+  pickByName(term: string): Promise<Term | null>;
   markGenerated(id: string): Promise<void>;
   markPublished(id: string, fields: PublishFields): Promise<void>;
   /** ステータスは変えずに成果物ID（Drive/YouTube）だけ記録する */
@@ -78,6 +80,11 @@ export class LocalTermStore implements TermStore {
     return selectTerm(pending, recentCategories);
   }
 
+  async pickByName(term: string): Promise<Term | null> {
+    const seed = await this.loadSeed();
+    return seed.find((t) => t.term === term) ?? null;
+  }
+
   async markGenerated(id: string): Promise<void> {
     const seed = await this.loadSeed();
     const term = seed.find((t) => t.id === id);
@@ -134,6 +141,17 @@ export class SupabaseTermStore implements TermStore {
     const pending = (pendingRows ?? []).map((r) => TermSchema.parse(r));
     const recentCategories = (publishedRows ?? []).map((r) => String(r.category ?? ''));
     return selectTerm(pending, recentCategories);
+  }
+
+  async pickByName(term: string): Promise<Term | null> {
+    const { data, error } = await this.client
+      .from(config.supabase.table)
+      .select('*')
+      .eq('term', term)
+      .limit(1)
+      .maybeSingle();
+    if (error) throw new Error(`Supabase pickByName failed: ${error.message}`);
+    return data ? TermSchema.parse(data) : null;
   }
 
   async markGenerated(id: string): Promise<void> {

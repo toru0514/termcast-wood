@@ -19,13 +19,25 @@ function log(step: string, msg: string) {
   console.log(`\x1b[36m[${step}]\x1b[0m ${msg}`);
 }
 
+/** --term <用語> で生成する用語を指定できる（再撮影・デモ用） */
+function parseTermArg(argv: string[]): string | undefined {
+  const idx = argv.indexOf('--term');
+  if (idx !== -1 && argv[idx + 1]) return argv[idx + 1];
+  return undefined;
+}
+
 async function main() {
   // ①ネタ選定
   const store = createTermStore();
   log('1/6 pick', `store=${store.name}`);
-  const term = await store.pickNext();
+  const wanted = parseTermArg(process.argv.slice(2));
+  const term = wanted ? await store.pickByName(wanted) : await store.pickNext();
   if (!term) {
-    console.error('pending な用語がありません。data/terms.seed.json を追加するか used.json をリセットしてください。');
+    console.error(
+      wanted
+        ? `用語「${wanted}」が見つかりません。data/terms.seed.json を確認してください。`
+        : 'pending な用語がありません。data/terms.seed.json を追加するか used.json をリセットしてください。',
+    );
     process.exit(1);
   }
   log('1/6 pick', `「${term.term}」(${term.category}, 難易度${term.difficulty})`);
