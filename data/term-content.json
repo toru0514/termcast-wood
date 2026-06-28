@@ -35,5 +35,25 @@
       { "type": "example", "narration": "ダイナミックで、どこか温かみがあって、見ているだけで心がほどけていきます。", "caption": "温かみのある表情" },
       { "type": "summary", "narration": "世界にひとつの表情、板目。木って、いいものですね。", "caption": "世界にひとつ" }
     ]
+  },
+  "ウォールナット": {
+    "scenes": [
+      { "type": "hook", "narration": "家具屋さんで、ひときわ高級に見える濃い茶色の木。なんだと思いますか？", "caption": "あの濃い茶色は？" },
+      { "type": "definition", "narration": "ウォールナット。世界三大銘木のひとつに数えられる、人気の広葉樹です。", "caption": "世界三大銘木" },
+      { "type": "example", "narration": "魅力は、深く落ち着いた、チョコレートのような色合い。流れるような木目も上品です。", "caption": "チョコレート色の木肌" },
+      { "type": "example", "narration": "硬くて狂いが少なく、衝撃にも強い。だから一生ものの家具に選ばれます。", "caption": "一生ものの強さ" },
+      { "type": "summary", "narration": "色も木目も、風格たっぷり。ウォールナットは、木の王様のひとつです。", "caption": "木の王様" }
+    ]
+  },
+  "木の表情": {
+    "scenes": [
+      { "type": "hook", "narration": "木って、どれも同じに見えますか？実は、ひとつとして同じ顔はありません。", "caption": "同じ木はない" },
+      { "type": "example", "narration": "淡くてやさしい、ミルクティーのような木。", "caption": "淡くやさしい木" },
+      { "type": "example", "narration": "深く赤みを帯びた、重厚な木。", "caption": "赤みの重厚な木" },
+      { "type": "example", "narration": "黄金色に、ぽつりと節。素朴であたたかな木。", "caption": "節のある素朴な木" },
+      { "type": "example", "narration": "まっすぐ繊細な木目が、すっと心を整える木。", "caption": "繊細な木目" },
+      { "type": "example", "narration": "時を重ねて、味わいを深めた古色の木。", "caption": "味わい深い古色" },
+      { "type": "summary", "narration": "色も、木目も、ぜんぶ違う。木の世界は、こんなにも豊かです。", "caption": "木の世界は豊か" }
+    ]
   }
 }

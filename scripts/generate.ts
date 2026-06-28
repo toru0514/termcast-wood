@@ -1,7 +1,9 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile, readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { basename } from 'node:path';
 import { config, paths } from '../src/config.js';
+import { TermSchema, type Term } from '../src/types.js';
 import { uploadToDrive } from '../src/drive.js';
 import { uploadToYouTube } from '../src/youtube.js';
 import { createTermStore } from '../src/pick/store.js';
@@ -26,12 +28,25 @@ function parseTermArg(argv: string[]): string | undefined {
   return undefined;
 }
 
+/**
+ * 用語マスタに無いが知識ベース(term-content.json)にある「特集」企画を --term で作るための補完。
+ * 例: 「木の表情」のような横断特集は用語集には載せず、ここで擬似 Term を組み立てる。
+ */
+async function featureTermFromContent(name: string): Promise<Term | null> {
+  if (!existsSync(paths.termContent)) return null;
+  const content = JSON.parse(await readFile(paths.termContent, 'utf8')) as Record<string, unknown>;
+  if (!content[name]) return null;
+  return TermSchema.parse({ id: `feature-${name}`, term: name, category: '特集', difficulty: 1, status: 'pending' });
+}
+
 async function main() {
   // ①ネタ選定
   const store = createTermStore();
   log('1/6 pick', `store=${store.name}`);
   const wanted = parseTermArg(process.argv.slice(2));
-  const term = wanted ? await store.pickByName(wanted) : await store.pickNext();
+  const term = wanted
+    ? (await store.pickByName(wanted)) ?? (await featureTermFromContent(wanted))
+    : await store.pickNext();
   if (!term) {
     console.error(
       wanted

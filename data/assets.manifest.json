@@ -4,5 +4,7 @@
   "オーク": ["oak_01.jpg", "oak_table_01.jpg"],
   "柾目": ["masame_01.jpg", "itame_01.jpg", "masame_01.jpg"],
   "板目": ["itame_01.jpg", "masame_01.jpg", "itame_01.jpg"],
-  "突板": ["oak_01.jpg", "itame_01.jpg"]
+  "突板": ["oak_01.jpg", "itame_01.jpg"],
+  "ウォールナット": ["wood_dark_01.jpg", "wood_warm_01.jpg"],
+  "木の表情": ["oak_01.jpg", "wood_warm_01.jpg", "wood_floor_01.jpg", "masame_01.jpg", "wood_weathered_01.jpg"]
 }
