@@ -1,55 +1,380 @@
 [
-  { "term": "柾目", "reading": "まさめ", "category": "木目", "difficulty": 1 },
-  { "term": "板目", "reading": "いため", "category": "木目", "difficulty": 1 },
-  { "term": "木目", "reading": "もくめ", "category": "木目", "difficulty": 1 },
-  { "term": "節", "reading": "ふし", "category": "木目", "difficulty": 1 },
-  { "term": "杢", "reading": "もく", "category": "木目", "difficulty": 2 },
-  { "term": "四方柾", "reading": "しほうまさ", "category": "木目", "difficulty": 3 },
-  { "term": "ヒノキ", "reading": "ひのき", "category": "樹種", "difficulty": 1 },
-  { "term": "スギ", "reading": "すぎ", "category": "樹種", "difficulty": 1 },
-  { "term": "パイン", "reading": "ぱいん", "category": "樹種", "difficulty": 1 },
-  { "term": "ウォールナット", "reading": "うぉーるなっと", "category": "樹種", "difficulty": 1 },
-  { "term": "オーク", "reading": "おーく", "category": "樹種", "difficulty": 1 },
-  { "term": "メープル", "reading": "めーぷる", "category": "樹種", "difficulty": 1 },
-  { "term": "ナラ", "reading": "なら", "category": "樹種", "difficulty": 2 },
-  { "term": "タモ", "reading": "たも", "category": "樹種", "difficulty": 2 },
-  { "term": "ブナ", "reading": "ぶな", "category": "樹種", "difficulty": 2 },
-  { "term": "ケヤキ", "reading": "けやき", "category": "樹種", "difficulty": 2 },
-  { "term": "チーク", "reading": "ちーく", "category": "樹種", "difficulty": 2 },
-  { "term": "マホガニー", "reading": "まほがにー", "category": "樹種", "difficulty": 3 },
-  { "term": "ローズウッド", "reading": "ろーずうっど", "category": "樹種", "difficulty": 3 },
-  { "term": "無垢材", "reading": "むくざい", "category": "構造", "difficulty": 1 },
-  { "term": "集成材", "reading": "しゅうせいざい", "category": "構造", "difficulty": 1 },
-  { "term": "合板", "reading": "ごうはん", "category": "構造", "difficulty": 1 },
-  { "term": "突板", "reading": "つきいた", "category": "構造", "difficulty": 2 },
-  { "term": "針葉樹", "reading": "しんようじゅ", "category": "構造", "difficulty": 1 },
-  { "term": "広葉樹", "reading": "こうようじゅ", "category": "構造", "difficulty": 1 },
-  { "term": "年輪", "reading": "ねんりん", "category": "構造", "difficulty": 1 },
-  { "term": "木表", "reading": "きおもて", "category": "構造", "difficulty": 2 },
-  { "term": "木裏", "reading": "きうら", "category": "構造", "difficulty": 2 },
-  { "term": "芯材", "reading": "しんざい", "category": "構造", "difficulty": 2 },
-  { "term": "辺材", "reading": "へんざい", "category": "構造", "difficulty": 2 },
-  { "term": "含水率", "reading": "がんすいりつ", "category": "構造", "difficulty": 2 },
-  { "term": "反り", "reading": "そり", "category": "構造", "difficulty": 1 },
-  { "term": "背割り", "reading": "せわり", "category": "構造", "difficulty": 3 },
-  { "term": "導管", "reading": "どうかん", "category": "構造", "difficulty": 3 },
-  { "term": "木取り", "reading": "きどり", "category": "加工", "difficulty": 2 },
-  { "term": "面取り", "reading": "めんとり", "category": "加工", "difficulty": 1 },
-  { "term": "ダボ", "reading": "だぼ", "category": "加工", "difficulty": 1 },
-  { "term": "ほぞ", "reading": "ほぞ", "category": "加工", "difficulty": 2 },
-  { "term": "留め", "reading": "とめ", "category": "加工", "difficulty": 2 },
-  { "term": "相欠き", "reading": "あいがき", "category": "加工", "difficulty": 2 },
-  { "term": "蟻継ぎ", "reading": "ありつぎ", "category": "加工", "difficulty": 3 },
-  { "term": "ビスケットジョイント", "reading": "びすけっとじょいんと", "category": "加工", "difficulty": 3 },
-  { "term": "サンディング", "reading": "さんでぃんぐ", "category": "仕上げ", "difficulty": 1 },
-  { "term": "オイルフィニッシュ", "reading": "おいるふぃにっしゅ", "category": "仕上げ", "difficulty": 1 },
-  { "term": "ウレタン塗装", "reading": "うれたんとそう", "category": "仕上げ", "difficulty": 1 },
-  { "term": "蜜蝋ワックス", "reading": "みつろうわっくす", "category": "仕上げ", "difficulty": 2 },
-  { "term": "うづくり", "reading": "うづくり", "category": "仕上げ", "difficulty": 2 },
-  { "term": "拭き漆", "reading": "ふきうるし", "category": "仕上げ", "difficulty": 3 },
-  { "term": "鉋", "reading": "かんな", "category": "道具", "difficulty": 1 },
-  { "term": "鋸", "reading": "のこぎり", "category": "道具", "difficulty": 1 },
-  { "term": "鑿", "reading": "のみ", "category": "道具", "difficulty": 2 },
-  { "term": "クランプ", "reading": "くらんぷ", "category": "道具", "difficulty": 1 },
-  { "term": "木工ボンド", "reading": "もっこうぼんど", "category": "道具", "difficulty": 1 }
+  {
+    "term": "柾目",
+    "reading": "まさめ",
+    "category": "木目",
+    "difficulty": 1
+  },
+  {
+    "term": "板目",
+    "reading": "いため",
+    "category": "木目",
+    "difficulty": 1
+  },
+  {
+    "term": "木目",
+    "reading": "もくめ",
+    "category": "木目",
+    "difficulty": 1
+  },
+  {
+    "term": "節",
+    "reading": "ふし",
+    "category": "木目",
+    "difficulty": 1
+  },
+  {
+    "term": "杢",
+    "reading": "もく",
+    "category": "木目",
+    "difficulty": 2
+  },
+  {
+    "term": "四方柾",
+    "reading": "しほうまさ",
+    "category": "木目",
+    "difficulty": 3
+  },
+  {
+    "term": "ヒノキ",
+    "reading": "ひのき",
+    "category": "樹種",
+    "difficulty": 1
+  },
+  {
+    "term": "スギ",
+    "reading": "すぎ",
+    "category": "樹種",
+    "difficulty": 1
+  },
+  {
+    "term": "パイン",
+    "reading": "ぱいん",
+    "category": "樹種",
+    "difficulty": 1
+  },
+  {
+    "term": "ウォールナット",
+    "reading": "うぉーるなっと",
+    "category": "樹種",
+    "difficulty": 1
+  },
+  {
+    "term": "オーク",
+    "reading": "おーく",
+    "category": "樹種",
+    "difficulty": 1
+  },
+  {
+    "term": "メープル",
+    "reading": "めーぷる",
+    "category": "樹種",
+    "difficulty": 1
+  },
+  {
+    "term": "ナラ",
+    "reading": "なら",
+    "category": "樹種",
+    "difficulty": 2
+  },
+  {
+    "term": "タモ",
+    "reading": "たも",
+    "category": "樹種",
+    "difficulty": 2
+  },
+  {
+    "term": "ブナ",
+    "reading": "ぶな",
+    "category": "樹種",
+    "difficulty": 2
+  },
+  {
+    "term": "ケヤキ",
+    "reading": "けやき",
+    "category": "樹種",
+    "difficulty": 2
+  },
+  {
+    "term": "チーク",
+    "reading": "ちーく",
+    "category": "樹種",
+    "difficulty": 2
+  },
+  {
+    "term": "マホガニー",
+    "reading": "まほがにー",
+    "category": "樹種",
+    "difficulty": 3
+  },
+  {
+    "term": "ローズウッド",
+    "reading": "ろーずうっど",
+    "category": "樹種",
+    "difficulty": 3
+  },
+  {
+    "term": "無垢材",
+    "reading": "むくざい",
+    "category": "構造",
+    "difficulty": 1
+  },
+  {
+    "term": "集成材",
+    "reading": "しゅうせいざい",
+    "category": "構造",
+    "difficulty": 1
+  },
+  {
+    "term": "合板",
+    "reading": "ごうはん",
+    "category": "構造",
+    "difficulty": 1
+  },
+  {
+    "term": "突板",
+    "reading": "つきいた",
+    "category": "構造",
+    "difficulty": 2
+  },
+  {
+    "term": "針葉樹",
+    "reading": "しんようじゅ",
+    "category": "構造",
+    "difficulty": 1
+  },
+  {
+    "term": "広葉樹",
+    "reading": "こうようじゅ",
+    "category": "構造",
+    "difficulty": 1
+  },
+  {
+    "term": "年輪",
+    "reading": "ねんりん",
+    "category": "構造",
+    "difficulty": 1
+  },
+  {
+    "term": "木表",
+    "reading": "きおもて",
+    "category": "構造",
+    "difficulty": 2
+  },
+  {
+    "term": "木裏",
+    "reading": "きうら",
+    "category": "構造",
+    "difficulty": 2
+  },
+  {
+    "term": "芯材",
+    "reading": "しんざい",
+    "category": "構造",
+    "difficulty": 2
+  },
+  {
+    "term": "辺材",
+    "reading": "へんざい",
+    "category": "構造",
+    "difficulty": 2
+  },
+  {
+    "term": "含水率",
+    "reading": "がんすいりつ",
+    "category": "構造",
+    "difficulty": 2
+  },
+  {
+    "term": "反り",
+    "reading": "そり",
+    "category": "構造",
+    "difficulty": 1
+  },
+  {
+    "term": "背割り",
+    "reading": "せわり",
+    "category": "構造",
+    "difficulty": 3
+  },
+  {
+    "term": "導管",
+    "reading": "どうかん",
+    "category": "構造",
+    "difficulty": 3
+  },
+  {
+    "term": "木取り",
+    "reading": "きどり",
+    "category": "加工",
+    "difficulty": 2
+  },
+  {
+    "term": "面取り",
+    "reading": "めんとり",
+    "category": "加工",
+    "difficulty": 1
+  },
+  {
+    "term": "ダボ",
+    "reading": "だぼ",
+    "category": "加工",
+    "difficulty": 1
+  },
+  {
+    "term": "ほぞ",
+    "reading": "ほぞ",
+    "category": "加工",
+    "difficulty": 2
+  },
+  {
+    "term": "留め",
+    "reading": "とめ",
+    "category": "加工",
+    "difficulty": 2
+  },
+  {
+    "term": "相欠き",
+    "reading": "あいがき",
+    "category": "加工",
+    "difficulty": 2
+  },
+  {
+    "term": "蟻継ぎ",
+    "reading": "ありつぎ",
+    "category": "加工",
+    "difficulty": 3
+  },
+  {
+    "term": "ビスケットジョイント",
+    "reading": "びすけっとじょいんと",
+    "category": "加工",
+    "difficulty": 3
+  },
+  {
+    "term": "サンディング",
+    "reading": "さんでぃんぐ",
+    "category": "仕上げ",
+    "difficulty": 1
+  },
+  {
+    "term": "オイルフィニッシュ",
+    "reading": "おいるふぃにっしゅ",
+    "category": "仕上げ",
+    "difficulty": 1
+  },
+  {
+    "term": "ウレタン塗装",
+    "reading": "うれたんとそう",
+    "category": "仕上げ",
+    "difficulty": 1
+  },
+  {
+    "term": "蜜蝋ワックス",
+    "reading": "みつろうわっくす",
+    "category": "仕上げ",
+    "difficulty": 2
+  },
+  {
+    "term": "うづくり",
+    "reading": "うづくり",
+    "category": "仕上げ",
+    "difficulty": 2
+  },
+  {
+    "term": "拭き漆",
+    "reading": "ふきうるし",
+    "category": "仕上げ",
+    "difficulty": 3
+  },
+  {
+    "term": "鉋",
+    "reading": "かんな",
+    "category": "道具",
+    "difficulty": 1
+  },
+  {
+    "term": "鋸",
+    "reading": "のこぎり",
+    "category": "道具",
+    "difficulty": 1
+  },
+  {
+    "term": "鑿",
+    "reading": "のみ",
+    "category": "道具",
+    "difficulty": 2
+  },
+  {
+    "term": "クランプ",
+    "reading": "くらんぷ",
+    "category": "道具",
+    "difficulty": 1
+  },
+  {
+    "term": "木工ボンド",
+    "reading": "もっこうぼんど",
+    "category": "道具",
+    "difficulty": 1
+  },
+  {
+    "term": "縮杢",
+    "reading": "ちぢみもく",
+    "category": "木目",
+    "difficulty": 2
+  },
+  {
+    "term": "虎斑",
+    "reading": "とらふ",
+    "category": "木目",
+    "difficulty": 2
+  },
+  {
+    "term": "桐",
+    "reading": "きり",
+    "category": "樹種",
+    "difficulty": 1
+  },
+  {
+    "term": "ゼブラウッド",
+    "reading": "ぜぶらうっど",
+    "category": "樹種",
+    "difficulty": 2
+  },
+  {
+    "term": "曲木",
+    "reading": "まげき",
+    "category": "加工",
+    "difficulty": 2
+  },
+  {
+    "term": "製材",
+    "reading": "せいざい",
+    "category": "加工",
+    "difficulty": 1
+  },
+  {
+    "term": "柿渋仕上げ",
+    "reading": "かきしぶ しあげ",
+    "category": "仕上げ",
+    "difficulty": 2
+  },
+  {
+    "term": "ステイン",
+    "reading": "すていん",
+    "category": "仕上げ",
+    "difficulty": 1
+  },
+  {
+    "term": "仕口",
+    "reading": "しぐち",
+    "category": "構造",
+    "difficulty": 2
+  },
+  {
+    "term": "差し金",
+    "reading": "さしがね",
+    "category": "道具",
+    "difficulty": 1
+  }
 ]
