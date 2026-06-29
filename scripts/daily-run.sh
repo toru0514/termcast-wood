@@ -59,8 +59,12 @@ if ! curl -sf "http://127.0.0.1:50021/version" >/dev/null 2>&1; then
 fi
 log "VOICEVOX 応答OK"
 
-# --- 4. 生成パイプライン実行 ---
+# --- 4. 用語ネタの自動補充（在庫が少なければ Gemini が足す。失敗しても続行）---
 cd "$PROJECT_DIR" || { log "ERROR: cd 失敗"; exit 1; }
+log "用語在庫チェック→必要なら自動補充…"
+npm run replenish >>"$LOG_FILE" 2>&1 || log "replenish 非ゼロ終了（続行）"
+
+# --- 5. 生成パイプライン実行 ---
 log "npm run generate 実行…"
 npm run generate >>"$LOG_FILE" 2>&1
 STATUS=$?
@@ -73,7 +77,7 @@ else
   log "ERROR: generate 失敗 (exit $STATUS)。詳細は $LOG_FILE"
 fi
 
-# --- 5. 古いログの掃除 (30日より古いものを削除) ---
+# --- 6. 古いログの掃除 (30日より古いものを削除) ---
 find "$LOG_DIR" -name 'generate-*.log' -mtime +30 -delete 2>/dev/null || true
 
 log "=== termcast daily 終了 ==="

@@ -11,6 +11,14 @@ export interface PublishFields {
   drive_link?: string | null;
 }
 
+/** 用語マスタへ追加する1語（自動補充で使用） */
+export interface NewTerm {
+  term: string;
+  reading: string;
+  category: string;
+  difficulty: number;
+}
+
 /** ①ネタ管理の抽象。Supabase 本番 / ローカルJSON フォールバックを差し替え可能に。 */
 export interface TermStore {
   name: string;
@@ -18,6 +26,12 @@ export interface TermStore {
   pickNext(): Promise<Term | null>;
   /** 用語名を指定して1語取得（--term / 再撮影・デモ用）。見つからなければ null */
   pickByName(term: string): Promise<Term | null>;
+  /** 未使用（pending）の用語数。自動補充の判定に使う */
+  pendingCount(): Promise<number>;
+  /** 既存の用語名一覧（重複追加を避けるため） */
+  listTermNames(): Promise<string[]>;
+  /** 用語をマスタへ追加（既存と重複する term はスキップ）。追加した件数を返す */
+  addTerms(terms: NewTerm[]): Promise<number>;
   markGenerated(id: string): Promise<void>;
   markPublished(id: string, fields: PublishFields): Promise<void>;
   /** ステータスは変えずに成果物ID（Drive/YouTube）だけ記録する */
@@ -83,6 +97,27 @@ export class LocalTermStore implements TermStore {
   async pickByName(term: string): Promise<Term | null> {
     const seed = await this.loadSeed();
     return seed.find((t) => t.term === term) ?? null;
+  }
+
+  async pendingCount(): Promise<number> {
+    const seed = await this.loadSeed();
+    const used = await this.loadUsed();
+    return seed.filter((t) => !used[t.id]).length;
+  }
+
+  async listTermNames(): Promise<string[]> {
+    const seed = await this.loadSeed();
+    return seed.map((t) => t.term);
+  }
+
+  async addTerms(terms: NewTerm[]): Promise<number> {
+    const raw = JSON.parse(await readFile(paths.seed, 'utf8')) as NewTerm[];
+    const existing = new Set(raw.map((t) => t.term));
+    const toAdd = terms.filter((t) => t.term && !existing.has(t.term));
+    if (toAdd.length === 0) return 0;
+    const merged = [...raw, ...toAdd];
+    await writeFile(paths.seed, JSON.stringify(merged, null, 2) + '\n');
+    return toAdd.length;
   }
 
   async markGenerated(id: string): Promise<void> {
@@ -152,6 +187,31 @@ export class SupabaseTermStore implements TermStore {
       .maybeSingle();
     if (error) throw new Error(`Supabase pickByName failed: ${error.message}`);
     return data ? TermSchema.parse(data) : null;
+  }
+
+  async pendingCount(): Promise<number> {
+    const { count, error } = await this.client
+      .from(config.supabase.table)
+      .select('id', { count: 'exact', head: true })
+      .eq('status', 'pending');
+    if (error) throw new Error(`Supabase pendingCount failed: ${error.message}`);
+    return count ?? 0;
+  }
+
+  async listTermNames(): Promise<string[]> {
+    const { data, error } = await this.client.from(config.supabase.table).select('term');
+    if (error) throw new Error(`Supabase listTermNames failed: ${error.message}`);
+    return (data ?? []).map((r) => String(r.term));
+  }
+
+  async addTerms(terms: NewTerm[]): Promise<number> {
+    if (terms.length === 0) return 0;
+    const { data, error } = await this.client
+      .from(config.supabase.table)
+      .upsert(terms, { onConflict: 'term', ignoreDuplicates: true })
+      .select('term');
+    if (error) throw new Error(`Supabase addTerms failed: ${error.message}`);
+    return (data ?? []).length;
   }
 
   async markGenerated(id: string): Promise<void> {

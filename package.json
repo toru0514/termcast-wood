@@ -8,6 +8,7 @@
     "generate": "tsx scripts/generate.ts",
     "publish": "tsx scripts/publish.ts",
     "seed:sql": "tsx scripts/print-seed-sql.ts",
+    "replenish": "tsx scripts/replenish.ts",
     "assets:check": "tsx scripts/check-assets.ts",
     "remotion:studio": "remotion studio src/remotion/index.ts",
     "test": "vitest run",
