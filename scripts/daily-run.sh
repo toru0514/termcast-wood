@@ -1,5 +1,5 @@
 #!/bin/zsh
-# termcast-wood: 毎日19:30の自動生成→Drive保存→YouTube公開 (launchdから起動)
+# termcast-wood: 毎日19:00の自動生成→Drive保存→YouTube公開 (launchdから起動)
 # launchd は最小環境で動くため PATH と前提(Docker / VOICEVOX)を自前で整える。
 set -u
 

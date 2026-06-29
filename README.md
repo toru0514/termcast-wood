@@ -276,9 +276,16 @@ npm run assets:check   # 各用語の素材充足状況を一覧
 ```
 
 ### 7.8 日次運用（ローカル）
-当面は手動で `generate` → 確認 → `publish`。安定後は `scripts/daily-run.sh` を cron / launchd で
-毎朝自動実行し、生成物を確認してから `publish` する半自動運用へ。完全自動化（無確認投稿）は
-品質・素材リスクを踏まえ慎重に判断する。
+手動なら `generate`（Drive保存＋YouTube公開まで自動）→ 必要に応じて確認。
+**毎日19:00の自動投稿**は launchd で常駐化済み（`deploy/` 参照。株版 `termcast-app` は19:30）。
+
+```bash
+cp deploy/com.termcast-wood.daily.plist ~/Library/LaunchAgents/
+launchctl load -w ~/Library/LaunchAgents/com.termcast-wood.daily.plist
+```
+
+`daily-run.sh` は Docker→VOICEVOX 起動確認→`npm run generate` を実行する。素材・台本が揃った
+用語を先に増やすほど自動投稿の品質が安定する（README §3.5.1）。
 
 ---
 
